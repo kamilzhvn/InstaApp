@@ -2,20 +2,29 @@
 //  AppDelegate.swift
 //  Instagram
 //
-//  Created by Robert Percival on 13/06/2017.
-//  Copyright © 2017 Robert Percival. All rights reserved.
+//  Created by macbook on 12/07/2019.
+//  Copyright © 2019. All rights reserved.
 //
 
 import UIKit
+import Parse
 
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
 
     var window: UIWindow?
+    
 
-
-    func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
+    func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
         // Override point for customization after application launch.
+        
+        let configuration = ParseClientConfiguration {
+            $0.applicationId = "9aa1a23b0bd151290a47eb77968b0476d9e9d4ef"
+            $0.clientKey = "d4460b1fce6727a8c293fddf0298b728756bdc19"
+            $0.server = "http://ec2-54-190-195-62.us-west-2.compute.amazonaws.com/parse"
+        }
+        Parse.initialize(with: configuration)
+        
         return true
     }
 
